@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptPanel" id="MainPanel" x="0.0" y="0.0" width="729.0"
+             height="450.0" bgColour="1514537" itemColour="4278387459" itemColour2="4278387459"
+             textColour="4281019179">
+    <Component type="ScriptImage" id="Background" x="0.0" y="0.0" width="730.0"
+               height="450.0" parentComponent="MainPanel" fileName="{PROJECT_FOLDER}overlay.png"/>
+    <Component type="ScriptLabel" id="Version" x="580.0" y="10.0" text="V1.0"
+               alignment="right" fontStyle="Bold" parentComponent="MainPanel"
+               fontName="Avenir Next" fontSize="16.0" textColour="4280339679"/>
+    <Component type="ScriptLabel" id="Company" x="560.0" y="30.0" alignment="right"
+               text="&#169; Mannix Squared, 2024" textColour="4292926663" parentComponent="MainPanel"
+               fontName="Avenir Next" fontSize="16.0" width="150.0"/>
+    <Component type="ScriptImage" id="Logo" x="10.0" y="10.0" width="61.0" height="60.0"
+               parentComponent="MainPanel" fileName="{PROJECT_FOLDER}logo.png"/>
+    <Component type="ScriptLabel" id="Title" x="76.0" y="19.0" width="110.0"
+               height="40.0" parentComponent="MainPanel" editable="0" text="MIX SPACE"
+               fontName="Avenir Next" fontStyle="Regular" fontSize="26.0" alignment="left"
+               textColour="4292926663"/>
+    <Component type="ScriptFloatingTile" id="FilterTile" x="20.0" y="80.0" width="690.0"
+               height="270.0" parentComponent="MainPanel" ContentType="FilterDisplay"
+               bgColour="3808428032" itemColour="4294967295" itemColour2="2164260863"
+               Data="{&#10;  &quot;ProcessorId&quot;: &quot;DynamicEQ&quot;,&#10;  &quot;Index&quot;: 0,&#10;  &quot;FollowWorkspace&quot;: false,&#10;  &quot;GainRange&quot;: 24.0&#10;}"/>
+    <Component type="ScriptFloatingTile" id="AnalyserTile" x="20.0" y="80.0"
+               width="690.0" height="270.0" parentComponent="MainPanel" ContentType="AudioAnalyser"
+               bgColour="0" itemColour="3192975103" itemColour2="1962934271"
+               textColour="1962934271" Data="{&#10;  &quot;ProcessorId&quot;: &quot;Analyser&quot;,&#10;  &quot;Index&quot;: 1,&#10;  &quot;FollowWorkspace&quot;: false&#10;}"
+               itemColour3="1962934271"/>
+    <Component type="ScriptPanel" id="Border" x="20.0" y="80.0" width="690.0"
+               height="270.0" parentComponent="MainPanel" bgColour="0" itemColour="0"
+               itemColour2="0" textColour="4285887861" borderSize="1.0" borderRadius="0.0"/>
+  </Component>
+  <Component type="ScriptSlider" id="Threshold" x="19.0" y="372.0" middlePosition="-18.0"
+             stepSize="0.1000000014901161" min="-100.0" max="0.0" suffix=" dB"
+             pluginParameterName="Threshold" isPluginParameter="1" mode="Decibel"
+             height="64.0" bgColour="0" itemColour="0" itemColour2="0" width="64.0"
+             numStrips="64.0" filmstripImage="{PROJECT_FOLDER}subtle_knob.png"/>
+  <Component type="ScriptLabel" id="ThresholdLabel" x="79.0" y="384.0" text="THRESHOLD"
+             fontStyle="Bold" alignment="right" width="75.0" height="20.0"
+             textColour="4280339679" fontName="Avenir Next" fontSize="14.0"/>
+  <Component type="ScriptLabel" id="ThresholdValue" x="85.0" y="399.0" alignment="right"
+             text="-24.00db" width="70.0" height="20.0" textColour="4292926663"
+             itemColour2="0" editable="0" fontName="Avenir Next" fontSize="14.0"/>
+  <Component type="ScriptSlider" id="Ratio" x="159.0" y="370.0" stepSize="0.1000000014901161"
+             max="10.0" defaultValue="1.0" height="64.0" bgColour="0" itemColour="16777215"
+             itemColour2="0" filmstripImage="{PROJECT_FOLDER}subtle_knob.png"
+             numStrips="64.0" width="64.0"/>
+  <Component type="ScriptLabel" id="RatioLabel" x="217.0" y="384.0" text="RATIO"
+             alignment="right" editable="0" fontStyle="Bold" width="50.0"
+             height="20.0" fontName="Avenir Next" fontSize="14.0" textColour="4280339679"/>
+  <Component type="ScriptLabel" id="RatioValue" x="217.0" y="399.0" text="2.3"
+             alignment="right" width="50.0" height="20.0" textColour="4292926663"
+             itemColour2="0" editable="0" fontName="Avenir Next" fontSize="14.0"/>
+  <Component type="ScriptSlider" id="Attack" x="299.0" y="370.0" stepSize="0.1000000014901161"
+             max="300.0" defaultValue="10.0" height="64.0" bgColour="0" itemColour2="0"
+             filmstripImage="{PROJECT_FOLDER}subtle_knob.png" numStrips="64.0"
+             width="64.0"/>
+  <Component type="ScriptLabel" id="AttackLabel" x="356.0" y="384.0" width="60.0"
+             height="20.0" text="ATTACK" fontStyle="Bold" alignment="right"
+             fontName="Avenir Next" fontSize="14.0" textColour="4280339679"/>
+  <Component type="ScriptLabel" id="AttackValue" x="366.0" y="399.0" itemColour2="0"
+             textColour="4292926663" text="0.0ms" width="50.0" height="20.0"
+             alignment="right" editable="0" fontName="Avenir Next" fontSize="14.0"/>
+  <Component type="ScriptSlider" id="Release" x="439.0" y="370.0" stepSize="0.1000000014901161"
+             max="300.0" defaultValue="50.0" height="64.0" bgColour="0" itemColour2="0"
+             itemColour="0" filmstripImage="{PROJECT_FOLDER}subtle_knob.png"
+             numStrips="64.0" width="64.0"/>
+  <Component type="ScriptLabel" id="ReleaseLabel" x="500.0" y="384.0" text="RELEASE"
+             fontStyle="Bold" alignment="right" width="60.0" height="20.0"
+             itemColour2="0" fontSize="14.0" fontName="Avenir Next" textColour="4280339679"/>
+  <Component type="ScriptLabel" id="ReleaseValue" x="510.0" y="399.0" alignment="right"
+             width="50.0" height="20.0" text="300.0ms" textColour="4292926663"
+             editable="0" fontName="Avenir Next" fontSize="14.0"/>
+  <Component type="ScriptSlider" id="Smoothing" x="580.0" y="370.0" isPluginParameter="1"
+             pluginParameterName="Smoothing" defaultValue="0.1000000014901161"
+             height="64.0" bgColour="0" itemColour="0" itemColour2="0" filmstripImage="{PROJECT_FOLDER}subtle_knob.png"
+             width="64.0" numStrips="64.0"/>
+  <Component type="ScriptLabel" id="SmoothingLabel" x="640.0" y="384.0" text="SMOOTHING"
+             alignment="right" fontStyle="Bold" width="70.0" height="20.0"
+             itemColour2="0" fontName="Avenir Next" fontSize="14.0" textColour="4280339679"/>
+  <Component type="ScriptLabel" id="SmoothingValue" x="650.0" y="399.0" text="0.0"
+             width="60.0" height="20.0" alignment="right" editable="0" fontName="Avenir Next"
+             fontSize="14.0" textColour="4292926663"/>
+</ContentProperties>

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="DynamicEQ" Version="0.0.0">
+  <Node FactoryPath="container.chain" ID="DynamicEQ" Bypassed="0" ShowParameters="1"
+        NodeColour="4284056498">
+    <Nodes>
+      <Node ID="multi" FactoryPath="container.multi" Bypassed="0">
+        <Nodes>
+          <Node ID="wrapsvf_eq21" FactoryPath="container.chain" Bypassed="0">
+            <Nodes>
+              <Node ID="svf_eq1" FactoryPath="filters.svf_eq" Bypassed="0">
+                <ComplexData>
+                  <Filters>
+                    <Filter Index="0"/>
+                  </Filters>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
+                             ID="Frequency" Value="100.0"/>
+                  <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                             ID="Q" Value="0.300000011920929"/>
+                  <Parameter MinValue="0.0" MaxValue="-100.0" ID="Gain" Automated="1" StepSize="0.1"
+                             SkewFactor="5.422270979580217"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
+                             ID="Smoothing" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="svf_eq2" FactoryPath="filters.svf_eq" Bypassed="0">
+                <ComplexData>
+                  <Filters>
+                    <Filter Index="0"/>
+                  </Filters>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
+                             ID="Frequency" Value="1000.0"/>
+                  <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                             ID="Q" Value="0.300000011920929"/>
+                  <Parameter MinValue="0.0" MaxValue="-100.0" StepSize="0.1" SkewFactor="5.422270979580217"
+                             ID="Gain" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
+                             ID="Smoothing" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
+                </Parameters>
+              </Node>
+              <Node ID="svf_eq3" FactoryPath="filters.svf_eq" Bypassed="0">
+                <ComplexData>
+                  <Filters>
+                    <Filter Index="0"/>
+                  </Filters>
+                </ComplexData>
+                <Parameters>
+                  <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
+                             ID="Frequency" Value="10000.0"/>
+                  <Parameter MinValue="0.300000011920929" MaxValue="9.899999618530273" SkewFactor="0.2647178173065186"
+                             ID="Q" Value="0.300000011920929"/>
+                  <Parameter MinValue="0.0" MaxValue="-100.0" StepSize="0.1" SkewFactor="5.422270979580217"
+                             ID="Gain" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
+                             ID="Smoothing" Automated="1"/>
+                  <Parameter MinValue="0.0" MaxValue="4.0" StepSize="1.0" ID="Mode" Value="4.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+          <Node ID="freq_split4" FactoryPath="container.split" ShowParameters="1"
+                Bypassed="0">
+            <Parameters>
+              <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045584686382"
+                         ID="Band 1" Value="100.0">
+                <Connections>
+                  <Connection NodeId="lr1_1" ParameterId="Frequency"/>
+                  <Connection NodeId="lr2_1" ParameterId="Frequency"/>
+                </Connections>
+              </Parameter>
+              <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045584686382"
+                         ID="Band 2" Value="1000.0">
+                <Connections>
+                  <Connection NodeId="lr3_2" ParameterId="Frequency"/>
+                  <Connection NodeId="lr2_2" ParameterId="Frequency"/>
+                </Connections>
+              </Parameter>
+              <Parameter ID="Threshold" MinValue="-100.0" MaxValue="0.0" SkewFactor="5.422270774841309"
+                         Automated="1">
+                <Connections>
+                  <Connection NodeId="jcompressor" ParameterId="Treshold"/>
+                  <Connection NodeId="jcompressor1" ParameterId="Treshold"/>
+                  <Connection NodeId="jcompressor2" ParameterId="Treshold"/>
+                </Connections>
+              </Parameter>
+              <Parameter ID="Ratio" MinValue="1.0" MaxValue="32.0" SkewFactor="0.4658005833625793"
+                         Automated="1">
+                <Connections>
+                  <Connection NodeId="jcompressor" ParameterId="Ratio"/>
+                  <Connection NodeId="jcompressor1" ParameterId="Ratio"/>
+                  <Connection NodeId="jcompressor2" ParameterId="Ratio"/>
+                </Connections>
+              </Parameter>
+              <Parameter ID="Attack" MinValue="0.0" MaxValue="300.0" SkewFactor="0.3868528008460999"
+                         Automated="1">
+                <Connections>
+                  <Connection NodeId="jcompressor" ParameterId="Attack"/>
+                  <Connection NodeId="jcompressor1" ParameterId="Attack"/>
+                  <Connection NodeId="jcompressor2" ParameterId="Attack"/>
+                </Connections>
+              </Parameter>
+              <Parameter ID="Release" MinValue="0.0" MaxValue="300.0" SkewFactor="0.2037950456142426"
+                         Automated="1">
+                <Connections>
+                  <Connection NodeId="jcompressor" ParameterId="Release"/>
+                  <Connection NodeId="jcompressor1" ParameterId="Release"/>
+                  <Connection NodeId="jcompressor2" ParameterId="Release"/>
+                </Connections>
+              </Parameter>
+            </Parameters>
+            <Nodes>
+              <Node ID="band1" FactoryPath="container.chain" Bypassed="0">
+                <Nodes>
+                  <Node ID="lr1_1" FactoryPath="jdsp.jlinkwitzriley" NodeColour="4288243600"
+                        Bypassed="0">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="-1"/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
+                                 ID="Frequency" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Type" Value="0.0"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="lr1_2" FactoryPath="jdsp.jlinkwitzriley" NodeColour="4288243600"
+                        Bypassed="0">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="-1"/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
+                                 ID="Frequency" Value="2000.0"/>
+                      <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Type" Value="2.0"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="jcompressor" FactoryPath="jdsp.jcompressor" Bypassed="0">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq1" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <ComplexData>
+                      <DisplayBuffers>
+                        <DisplayBuffer Index="-1"/>
+                      </DisplayBuffers>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="-100.0" MaxValue="0.0" SkewFactor="5.422270774841309"
+                                 ID="Treshold" Automated="1"/>
+                      <Parameter MinValue="1.0" MaxValue="32.0" SkewFactor="0.4658005833625793"
+                                 ID="Ratio" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="300.0" SkewFactor="0.3868528008460999"
+                                 ID="Attack" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="300.0" SkewFactor="0.2037950456142426"
+                                 ID="Release" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="band2" FactoryPath="container.chain" Bypassed="0">
+                <Nodes>
+                  <Node ID="lr2_1" FactoryPath="jdsp.jlinkwitzriley" NodeColour="4284979576"
+                        Bypassed="0">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="-1"/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
+                                 ID="Frequency" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Type" Value="1.0"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="lr2_2" FactoryPath="jdsp.jlinkwitzriley" NodeColour="4284979576"
+                        Bypassed="0">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="-1"/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
+                                 ID="Frequency" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Type" Value="0.0"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="jcompressor1" FactoryPath="jdsp.jcompressor" Bypassed="0">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq2" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <ComplexData>
+                      <DisplayBuffers>
+                        <DisplayBuffer Index="-1"/>
+                      </DisplayBuffers>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="-100.0" MaxValue="0.0" SkewFactor="5.422270774841309"
+                                 ID="Treshold" Automated="1"/>
+                      <Parameter MinValue="1.0" MaxValue="32.0" SkewFactor="0.4658005833625793"
+                                 ID="Ratio" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="300.0" SkewFactor="0.3868528008460999"
+                                 ID="Attack" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="300.0" SkewFactor="0.2037950456142426"
+                                 ID="Release" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+              <Node ID="band3" FactoryPath="container.chain" Bypassed="0">
+                <Nodes>
+                  <Node ID="lr3_1" FactoryPath="jdsp.jlinkwitzriley" NodeColour="4286867353"
+                        Bypassed="0">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="-1"/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
+                                 ID="Frequency" Value="2000.0"/>
+                      <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Type" Value="2.0"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="lr3_2" FactoryPath="jdsp.jlinkwitzriley" NodeColour="4286867353"
+                        Bypassed="0">
+                    <ComplexData>
+                      <Filters>
+                        <Filter Index="-1"/>
+                      </Filters>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="20.0" MaxValue="20000.0" SkewFactor="0.2299045622348785"
+                                 ID="Frequency" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="2.0" StepSize="1.0" ID="Type" Value="1.0"/>
+                    </Parameters>
+                  </Node>
+                  <Node ID="jcompressor2" FactoryPath="jdsp.jcompressor" Bypassed="0">
+                    <ModulationTargets>
+                      <Connection NodeId="svf_eq3" ParameterId="Gain"/>
+                    </ModulationTargets>
+                    <ComplexData>
+                      <DisplayBuffers>
+                        <DisplayBuffer Index="-1"/>
+                      </DisplayBuffers>
+                    </ComplexData>
+                    <Parameters>
+                      <Parameter MinValue="-100.0" MaxValue="0.0" SkewFactor="5.422270774841309"
+                                 ID="Treshold" Automated="1"/>
+                      <Parameter MinValue="1.0" MaxValue="32.0" SkewFactor="0.4658005833625793"
+                                 ID="Ratio" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="300.0" SkewFactor="0.3868528008460999"
+                                 ID="Attack" Automated="1"/>
+                      <Parameter MinValue="0.0" MaxValue="300.0" SkewFactor="0.2037950456142426"
+                                 ID="Release" Automated="1"/>
+                    </Parameters>
+                  </Node>
+                </Nodes>
+                <Parameters/>
+              </Node>
+            </Nodes>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="Threshold" MinValue="-100.0" MaxValue="0.0" SkewFactor="5.422270774841309"
+                 Value="-27.89707036450426">
+        <Connections>
+          <Connection NodeId="freq_split4" ParameterId="Threshold"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Ratio" MinValue="1.0" MaxValue="32.0" SkewFactor="0.4658005833625793"
+                 Value="13.10797619544753">
+        <Connections>
+          <Connection NodeId="freq_split4" ParameterId="Ratio"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Attack" MinValue="0.0" MaxValue="300.0" SkewFactor="0.3868528008460999"
+                 Value="0.0">
+        <Connections>
+          <Connection NodeId="freq_split4" ParameterId="Attack"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Release" MinValue="0.0" MaxValue="300.0" Value="300.0" SkewFactor="0.2037950456142426">
+        <Connections>
+          <Connection NodeId="freq_split4" ParameterId="Release"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Smoothing" MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
+                 Value="0.1">
+        <Connections>
+          <Connection NodeId="svf_eq3" ParameterId="Smoothing"/>
+          <Connection NodeId="svf_eq2" ParameterId="Smoothing"/>
+          <Connection NodeId="svf_eq3" ParameterId="Smoothing"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>

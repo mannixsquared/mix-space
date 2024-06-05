@@ -1,0 +1,2 @@
+Target dependency graph (1 target)
+Target 'mix_space - Dynamic Library' in project 'mix_space' (no dependencies)
