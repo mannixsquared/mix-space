@@ -15,7 +15,7 @@ const var DynamicEQ = Synth.getEffect("DynamicEQ");
 
 inline function onThresholdControl(component, value)
 {	
-	local v = Engine.doubleToString(value, 2) + "db";
+	local v = Engine.doubleToString(value, 2) + "dB";
 	DynamicEQ.setAttribute(0, value);
 	ThresholdValue.set("text", v);
 };
